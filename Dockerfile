@@ -3,7 +3,8 @@ FROM       ubuntu:18.04
 ENV FORCE_UNSAFE_CONFIGURE=1 \
 	TZ=Asia/Shanghai \
 	password=password \
-	username=username 
+	username=username \
+	api=api
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
 	&&sed -ri 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
@@ -24,6 +25,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
 	&&apt --fix-broken install \
 	&&rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
 	&&rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc 
+	
 RUN wget -q https://raw.githubusercontent.com/wcwac/zzu-jksb/master/jksb.py -O /root/jksb.py \
 	&&sed -ri 's/8*3600/0/g' /root/jksb.py \
 	&&echo "5 0 * * * /usr/bin/python3 /root/jksb.py" >> /var/spool/cron/crontabs/root \
