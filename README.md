@@ -18,7 +18,7 @@ docker run -dit --name jksb -e username=username -e password=password -e api=api
 可通过ssh连接到docker，或使用
 
 ```
-docker run -dit --name jksb1 -e username=username -e password=password -e api=api muxinghe/docker-jksb:latest
+docker run -dit --name jksb -e username=username -e password=password -e api=api muxinghe/docker-jksb:latest
 ```
 
 

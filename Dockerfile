@@ -33,4 +33,5 @@ RUN wget -q https://raw.githubusercontent.com/wcwac/zzu-jksb/master/jksb.py -O /
 	&&echo "35 7 * * * /usr/bin/python3 /root/jksb.py" >> /var/spool/cron/crontabs/root
 
 EXPOSE 22
+CMD source source /etc/profile
 ENTRYPOINT  ["/usr/sbin/sshd", "-D"]
