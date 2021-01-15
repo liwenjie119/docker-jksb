@@ -19,7 +19,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
 	&&unzip chromedriver_linux64.zip&&chmod +x chromedriver&& mv chromedriver /usr/bin/ \
 	&&wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
 	&&gdebi -n google-chrome-stable_current_amd64.deb \
-	&&apt --fix-broken install 
+	&&apt --fix-broken install \
 	&&rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
 	&&rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc 
 RUN wget -q https://raw.githubusercontent.com/wcwac/zzu-jksb/master/jksb.py -O /root/jksb.py \
