@@ -1,7 +1,9 @@
 FROM       ubuntu:18.04
 
 ENV FORCE_UNSAFE_CONFIGURE=1 \
-	TZ=Asia/Shanghai
+	TZ=Asia/Shanghai \
+	password=password \
+	username=username 
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
 	&&sed -ri 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
