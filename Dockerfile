@@ -11,13 +11,13 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
 	&&LATEST=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELEASE) \
 	&&wget http://chromedriver.storage.googleapis.com/$LATEST/chromedriver_linux64.zip \
 	&&unzip chromedriver_linux64.zip&&chmod +x chromedriver&& mv chromedriver /usr/bin/ \
-	&&wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+	&&wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
 	&&gdebi -n google-chrome-stable_current_amd64.deb \
 	&&apt --fix-broken install \
-	&&wget https://raw.githubusercontent.com/wcwac/zzu-jksb/master/jksb.py -O /root/jksb.py \
+	&&wget -q https://raw.githubusercontent.com/wcwac/zzu-jksb/master/jksb.py -O /root/jksb.py \
 	&&sed -ri 's/8*3600/0/g' /root/jksb.py \
 	&&echo "5 0 * * * /usr/bin/python3 /root/jksb.py" >> /var/spool/cron/crontabs/root \
 	&&echo "35 7 * * * /usr/bin/python3 /root/jksb.py" >> /var/spool/cron/crontabs/root
 
 
-ENTRYPOINT  ["/bin/bash","screen","-S","cron"]
+ENTRYPOINT  ["screen","-S","cron"]
