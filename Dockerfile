@@ -11,6 +11,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
 	&&apt-get -yqq update&&apt-get -yqq install libterm-readkey-perl \
 	&&apt-get install -yqq sudo ssh net-tools vim screen language-pack-zh-hans bash-completion fonts-wqy-microhei \
 	&&mkdir /var/run/sshd \
+	&&echo 'export LC_ALL=zh_CN.UTF-8' >> /etc/profile \
 	&&echo 'root:root' |chpasswd \
 	&&sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config \
 	&&sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config \
