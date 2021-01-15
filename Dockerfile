@@ -9,7 +9,7 @@ ENV FORCE_UNSAFE_CONFIGURE=1 \
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
 	&&sed -ri 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
 	&&apt-get -yqq update&&apt-get -yqq install libterm-readkey-perl \
-	&&apt-get install -yqq sudo ssh net-tools vim screen \
+	&&apt-get install -yqq sudo ssh net-tools vim screen language-pack-zh-hans bash-completion fonts-wqy-microhei \
 	&&mkdir /var/run/sshd \
 	&&echo 'root:root' |chpasswd \
 	&&sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config \
