@@ -12,6 +12,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
 	&&apt-get install -yqq sudo ssh net-tools vim screen language-pack-zh-hans bash-completion fonts-wqy-microhei \
 	&&mkdir /var/run/sshd \
 	&&echo 'export LC_ALL=zh_CN.UTF-8' >> /etc/profile \
+	&&echo 'source /etc/profile' >> /root/.bashrc \
 	&&echo 'root:root' |chpasswd \
 	&&sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config \
 	&&sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config \
@@ -31,7 +32,7 @@ RUN wget -q https://raw.githubusercontent.com/wcwac/zzu-jksb/master/jksb.py -O /
 	&&sed -ri 's/8*3600/0/g' /root/jksb.py \
 	&&echo "5 0 * * * /usr/bin/python3 /root/jksb.py" >> /var/spool/cron/crontabs/root \
 	&&echo "35 7 * * * /usr/bin/python3 /root/jksb.py" >> /var/spool/cron/crontabs/root
-
+	
 EXPOSE 22
-ENTRYPOINT  ["source", "/etc/profile"]
+
 ENTRYPOINT  ["/usr/sbin/sshd", "-D"]
