@@ -27,5 +27,5 @@ RUN wget -q https://raw.githubusercontent.com/wcwac/zzu-jksb/master/jksb.py -O /
 	&&echo "5 0 * * * /usr/bin/python3 /root/jksb.py" >> /var/spool/cron/crontabs/root \
 	&&echo "35 7 * * * /usr/bin/python3 /root/jksb.py" >> /var/spool/cron/crontabs/root
 
-
-CMD  ["screen","-S","cron"]
+EXPOSE 22
+ENTRYPOINT  ["/usr/sbin/sshd", "-D"]
