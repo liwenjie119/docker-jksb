@@ -34,5 +34,5 @@ RUN wget -q https://raw.githubusercontent.com/wcwac/zzu-jksb/master/jksb.py -O /
 	&&echo "35 7 * * * /usr/bin/python3 /root/jksb.py" >> /var/spool/cron/crontabs/root
 	
 EXPOSE 22
-
-ENTRYPOINT  ["/usr/sbin/cron","&&","/usr/sbin/sshd", "-D"]
+ENTRYPOINT  ["/usr/sbin/cron"]
+ENTRYPOINT  ["/usr/sbin/sshd", "-D"]
