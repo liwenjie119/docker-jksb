@@ -36,3 +36,4 @@ RUN wget -q https://raw.githubusercontent.com/wcwac/zzu-jksb/master/jksb.py -O /
 EXPOSE 22
 
 ENTRYPOINT  ["/usr/sbin/sshd", "-D"]
+ENTRYPOINT  ["/usr/sbin/crond", "-D"]
