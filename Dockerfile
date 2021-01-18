@@ -17,9 +17,9 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
 	&&echo 'root:root' |chpasswd \
 	&&sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config \
 	&&sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config \
-	&&sed -ri 's#required#sufficient#g' /etc/pam.d/cron \
 	&&mkdir /root/.ssh \
 	&&apt-get -yqq install curl cron unzip wget gdebi git python3 python3-pip screen tzdata \
+	&&sed -ri 's#required#sufficient#g' /etc/pam.d/cron \
 	&&python3 -m pip install --upgrade requests&&python3 -m pip install --upgrade pip&& python3 -m pip install --upgrade selenium \
 	&&LATEST=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELEASE) \
 	&&wget http://chromedriver.storage.googleapis.com/$LATEST/chromedriver_linux64.zip -O /root/chromedriver_linux64.zip \
