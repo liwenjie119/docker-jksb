@@ -32,7 +32,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
 	
 RUN cd /root&&wget -q https://raw.githubusercontent.com/wcwac/zzu-jksb/master/jksb.py -O /root/jksb.py \
 	&&wget https://raw.githubusercontent.com/liwenjie119/docker-jksb/main/start.sh -O /root/start.sh \
-	&&chmod 755 /root/start.sh \
+	&&chmod 0755 /root/start.sh \
 	&&sed -ri 's/8*3600/0/g' /root/jksb.py \
 	&&echo '/etc/init.d/cron start -D' >> /root/.bashrc \
 	&&echo "5 0 * * * /usr/bin/python3 /root/jksb.py" >> /var/spool/cron/crontabs/root \
