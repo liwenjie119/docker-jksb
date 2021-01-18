@@ -34,11 +34,12 @@ RUN cd /root&&wget -q https://raw.githubusercontent.com/wcwac/zzu-jksb/master/jk
 	&&wget https://raw.githubusercontent.com/liwenjie119/docker-jksb/main/start.sh -O /root/start.sh \
 	&&chmod 0755 /root/start.sh \
 	&&sed -ri 's/8*3600/0/g' /root/jksb.py \
-	&&echo '/etc/init.d/cron start -D' >> /root/.bashrc \
+	&&echo '/etc/init.d/cron restart -D' >> /root/.bashrc \
 	&&echo "5 0 * * * /usr/bin/python3 /root/jksb.py >>/root/jksb.log" >> /var/spool/cron/crontabs/root \
-	&&echo "35 7 * * * /usr/bin/python3 /root/jksb.py >>/root/jksb.log" >> /var/spool/cron/crontabs/root 
+	&&echo "35 7 * * * /usr/bin/python3 /root/jksb.py >>/root/jksb.log" >> /var/spool/cron/crontabs/root \
+	&&echo 'source /etc/profile' >> /root/.bashrc
 
-	
+y
 EXPOSE 22
 
 ENTRYPOINT  ["/root/start.sh"]
