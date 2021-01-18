@@ -39,4 +39,4 @@ RUN cd /root&&wget -q https://raw.githubusercontent.com/wcwac/zzu-jksb/master/jk
 	
 EXPOSE 22
 
-ENTRYPOINT  ["/usr/sbin/sshd","start","-D"]
+ENTRYPOINT  ["/usr/sbin/sshd","-D"]
