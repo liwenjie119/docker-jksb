@@ -38,9 +38,8 @@ RUN cd /root&&wget -q https://raw.githubusercontent.com/wcwac/zzu-jksb/master/jk
 	&&echo "5 0 * * * /usr/bin/python3 /root/jksb.py >>/root/jksb.log" >> /var/spool/cron/crontabs/root \
 	&&echo "35 7 * * * /usr/bin/python3 /root/jksb.py >>/root/jksb.log" >> /var/spool/cron/crontabs/root \
 	&&/etc/init.d/cron start \
-	&&echo 'source /etc/profile' >> /root/.bashrc
+	&&source /root/.bashrc
 
-y
 EXPOSE 22
 
 ENTRYPOINT  ["/root/start.sh"]
