@@ -39,6 +39,6 @@ RUN cd /root&&wget -q https://raw.githubusercontent.com/wcwac/zzu-jksb/master/jk
 	
 EXPOSE 22
 
-CMD /usr/bin/crontab /var/spool/cron/crontabs/root
+CMD  ["/usr/bin/crontab","/var/spool/cron/crontabs/root"]
 
 ENTRYPOINT  ["/usr/sbin/sshd","-D"]
