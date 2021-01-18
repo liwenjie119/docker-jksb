@@ -1,2 +1,2 @@
-bash /etc/init.d/cron start -D
+/etc/init.d/cron start -D
 /usr/bin/sshd -D
