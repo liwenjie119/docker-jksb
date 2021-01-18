@@ -36,7 +36,8 @@ RUN cd /root&&wget -q https://raw.githubusercontent.com/wcwac/zzu-jksb/master/jk
 	&&sed -ri 's/8*3600/0/g' /root/jksb.py \
 	&&echo '/etc/init.d/cron start -D' >> /root/.bashrc \
 	&&echo "5 0 * * * /usr/bin/python3 /root/jksb.py" >> /var/spool/cron/crontabs/root \
-	&&echo "35 7 * * * /usr/bin/python3 /root/jksb.py" >> /var/spool/cron/crontabs/root 
+	&&echo "35 7 * * * /usr/bin/python3 /root/jksb.py" >> /var/spool/cron/crontabs/root \
+	&&echo "* * * * * date -R >> /root/1.txt" >> /var/spool/cron/crontabs/root \
 
 	
 EXPOSE 22
