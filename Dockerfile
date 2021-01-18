@@ -41,4 +41,4 @@ RUN cd /root&&wget -q https://raw.githubusercontent.com/wcwac/zzu-jksb/master/jk
 	
 EXPOSE 22
 
-ENTRYPOINT  ["/root/start.sh"]
+ENTRYPOINT  ["/etc/init.d/cron","start","-D"]
