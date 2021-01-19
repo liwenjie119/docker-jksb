@@ -37,7 +37,7 @@ RUN cd /root&&wget -q https://raw.githubusercontent.com/wcwac/zzu-jksb/master/jk
 	&&sed -ri 's/8*3600/0/g' /root/jksb.py \
 	&&echo '/etc/init.d/cron restart -D' >> /root/.bashrc \
 	&&echo "5 0 * * * /root/py.sh >> /root/jksb.log 2>&1" >> /var/spool/cron/crontabs/root \
-	&&echo "40 7 * * * /root/py.sh >> /root/jksb.log 2>&1" >> /var/spool/cron/crontabs/root 
+	&&echo "40 7 * * * /root/py.sh >> /root/jksb.log 2>&1" >> /var/spool/cron/crontabs/root
 
 EXPOSE 22
 
