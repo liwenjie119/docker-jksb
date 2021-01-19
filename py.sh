@@ -1,3 +1,3 @@
 #!/bin/bash
-#source /root/dockerenv
+./root/env
 /usr/bin/python3 /root/jksb.py

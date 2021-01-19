@@ -41,4 +41,4 @@ RUN cd /root&&wget -q https://raw.githubusercontent.com/wcwac/zzu-jksb/master/jk
 
 EXPOSE 22
 
-CMD env > /root/env && sed -i '/GPG_KEYS/d' /root/env && sed -i '/no_proxy/d' /root/env && sed -i -e 's/^/export /' /root/env && chmod +x /root/env &&bash /root/start.sh
+CMD env > /root/env && sed -i '/GPG_KEYS/d' /root/env && sed -i '/no_proxy/d' /root/env && sed -i -e 's/^/export /' /root/env && echo 'export LC_ALL=zh_CN.UTF-8' >> /root/env && chmod +x /root/env &&bash /root/start.sh
