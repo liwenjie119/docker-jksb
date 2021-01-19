@@ -1,5 +1,5 @@
 #!/bin/bash
-/etc/init.d/cron start -D
 crontab /var/spool/cron/crontabs/root
-env >> /root/dockerenv
+export >> /root/dockerenv
+/etc/init.d/cron restart -D
 /usr/sbin/sshd -D
