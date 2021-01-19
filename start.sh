@@ -1,5 +1,5 @@
 #!/bin/bash
-env >> /etc/default/locale
+./root/env
 crontab /var/spool/cron/crontabs/root
 /etc/init.d/cron restart -D
 /usr/sbin/sshd -D
